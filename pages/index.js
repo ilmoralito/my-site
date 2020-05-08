@@ -6,9 +6,26 @@ export default function Index() {
   return (
     <>
       <Layout title="Home">
-        <Profile />
-        <Links />
+        <div className="container">
+          <div>
+            <Profile />
+            <Links />
+          </div>
+        </div>
       </Layout>
+
+      <style jsx>{`
+        .container {
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .container div {
+          width: 600px;
+        }
+      `}</style>
     </>
   );
 }

@@ -9,9 +9,9 @@ export default function Header() {
 
       <style jsx global>{`
         header {
-          display: flex;
+          border-bottom: 1px dashed tomato;
           padding: 10px;
-          background-color: tomato;
+          display: flex;
           justify-content: space-between;
         }
       `}</style>

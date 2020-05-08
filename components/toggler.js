@@ -8,13 +8,28 @@ export default function Toggler() {
     <>
       <button
         onClick={togglerContext.switchStyleMode}
-        style={{
-          backgroundColor:
-            togglerContext.styleMode === "light" ? "red" : "steelblue",
-        }}
+        className={`${togglerContext.styleMode}-mode`}
       >
-        Switch to dark mode
+        {`${togglerContext.styleMode === "light" ? "Dark" : "Light"} mode`}
       </button>
+
+      <style jsx>{`
+        button {
+          border: 1px solid gray;
+          border-radius: 4px;
+          padding: 5px;
+        }
+
+        button.light-mode {
+          background-color: #282c35;
+          color: white;
+        }
+
+        button.dark-mode {
+          background-color: white;
+          color: #282c35;
+        }
+      `}</style>
     </>
   );
 }
