@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Links() {
   return (
     <>
-      <p>Lorem ipsum</p>
+      <p>Contact me</p>
       <nav>
         <ul>
           <li>
@@ -18,6 +18,9 @@ export default function Links() {
             <a href="https://stackoverflow.com/users/615274/user615274">
               Stackoverflow
             </a>
+          </li>
+          <li>
+            <a href="mailto:mariorojermartinez@gmail.com">Email</a>
           </li>
           <li>
             <Link href="/blog">
