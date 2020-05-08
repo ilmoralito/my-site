@@ -17,21 +17,17 @@ export default function Layout({ title, description, children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Header />
-      <main>
-        {children}
-      </main>
+      <main>{children}</main>
 
       <style jsx global>{`
-        @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800;900&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700;800;900&display=swap");
 
         body {
           background-color: ${backgroundColor};
           color: ${foregroundColor};
           padding: 0;
           margin: 0;
-          font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI",
-            Inter, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-            sans-serif;
+          font-family: "Roboto Mono", mono space;
         }
 
         body a {
