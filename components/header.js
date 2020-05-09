@@ -7,7 +7,7 @@ export default function Header() {
       <Menu />
       <Toggler />
 
-      <style jsx global>{`
+      <style jsx>{`
         header {
           border-bottom: 1px dashed tomato;
           padding: 10px;

@@ -12,13 +12,18 @@ export default function Blog({ posts }) {
     <Layout title="Blog">
       <main>
         <h1 style={{ textAlign: "center" }}>Welcome to my blog</h1>
+
         {post && <MainPost data={post.data} />}
+
         {otherPosts && (
           <>
             <h2 style={{ textAlign: "center" }}>Other publitations</h2>
             {otherPosts.map((post) => (
-              <section>
-                <Link href="" as="">
+              <section key={post.slug}>
+                <Link
+                  href="/blog/[slug]"
+                  as={`/blog/${post.data.slug}`}
+                >
                   <a>{post.data.title}</a>
                 </Link>
                 <p>
