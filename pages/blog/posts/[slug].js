@@ -1,11 +1,16 @@
-import Layout from "../../components/layout";
-import PostBody from "../../components/post-body";
-import markdownToHtml from "../../utils/markdownToHtml";
-import { getPosts, getPostBySlug } from "../../utils/api";
+import Layout from "../../../components/layout";
+import PostBody from "../../../components/post-body";
+import markdownToHtml from "../../../utils/markdownToHtml";
+import { getPosts, getPostBySlug } from "../../../utils/api";
 import Head from "next/head";
 
-export default function Post({ post, name, description }) {
+export default function Post({ post, name }) {
   const { data, content } = post;
+  const [origin, setOrigin] = React.useState("");
+
+  React.useEffect(() => {
+    setOrigin(window.location.origin);
+  }, []);
 
   return (
     <Layout title={data.title} description={data.excerpt}>
@@ -15,12 +20,16 @@ export default function Post({ post, name, description }) {
         <meta name="twitter:card" content="summary_large_image" key="twcard" />
         <meta name="twitter:creator" content="@mmartinez" key="twhandle" />
         <meta name="twitter:site" content="@mmartinez" />
-        <meta name="twitter:image" content={data.ogImage.url} />
+        <meta name="twitter:image" content={`${origin}${data.ogImage.url}`} />
         <meta name="twitter:description" content={data.excerpt} />
 
         {/* Open Graph */}
         <meta property="og:url" content={``} key="ogurl" />
-        <meta property="og:image" content={data.ogImage.url} key="ogimage" />
+        <meta
+          property="og:image"
+          content={`${origin}${data.ogImage.url}`}
+          key="ogimage"
+        />
         <meta property="og:site_name" content={name} key="ogsitename" />
         <meta property="og:title" content={data.title} key="ogtitle" />
         <meta property="og:description" content={data.excerpt} key="ogdesc" />
@@ -58,7 +67,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const post = getPostBySlug(params.slug);
   const content = await markdownToHtml(post.content || "");
-  const siteConfiguration = await import(`../../site-configuration.json`);
+  const siteConfiguration = await import(`../../../site-configuration.json`);
 
   return {
     props: {
@@ -67,7 +76,6 @@ export async function getStaticProps({ params }) {
         content,
       },
       name: siteConfiguration.name,
-      description: siteConfiguration.description,
     },
   };
 }

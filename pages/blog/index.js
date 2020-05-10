@@ -21,8 +21,8 @@ export default function Blog({ posts }) {
             {otherPosts.map((post) => (
               <section key={post.slug}>
                 <Link
-                  href="/blog/[slug]"
-                  as={`/blog/${post.data.slug}`}
+                  href="/blog/posts/[slug]"
+                  as={`/blog/posts/${post.data.slug}`}
                 >
                   <a>{post.data.title}</a>
                 </Link>
