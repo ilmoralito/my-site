@@ -24,7 +24,7 @@ export default function Post({ post, name }) {
         <meta name="twitter:description" content={data.excerpt} />
 
         {/* Open Graph */}
-        <meta property="og:url" content={``} key="ogurl" />
+        <meta property="og:url" content={origin} key="ogurl" />
         <meta
           property="og:image"
           content={`${origin}${data.ogImage.url}`}
