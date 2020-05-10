@@ -12,7 +12,7 @@ export default function Post({ post, name, description }) {
       <Head>
         {/* Twitter */}
         <meta name="twitter:title" content={data.title} />
-        <meta name="twitter:card" content="summary" key="twcard" />
+        <meta name="twitter:card" content="summary_large_image" key="twcard" />
         <meta name="twitter:creator" content="@mmartinez" key="twhandle" />
         <meta name="twitter:site" content="@mmartinez" />
         <meta name="twitter:image" content={data.ogImage.url} />
