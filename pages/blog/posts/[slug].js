@@ -56,7 +56,7 @@ export async function getStaticPaths() {
     paths: posts.map((post) => {
       return {
         params: {
-          slug: post.data.slug,
+          slug: post.slug,
         },
       };
     }),
