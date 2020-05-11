@@ -20,10 +20,7 @@ export default function Blog({ posts }) {
             <h2 style={{ textAlign: "center" }}>Other publitations</h2>
             {otherPosts.map((post) => (
               <section key={post.slug}>
-                <Link
-                  href="/blog/posts/[slug]"
-                  as={`/blog/posts/${post.data.slug}`}
-                >
+                <Link href="/blog/posts/[slug]" as={`/blog/posts/${post.slug}`}>
                   <a>{post.data.title}</a>
                 </Link>
                 <p>

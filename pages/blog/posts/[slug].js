@@ -16,12 +16,12 @@ export default function Post({ post, name }) {
     <Layout title={data.title} description={data.excerpt}>
       <Head>
         {/* Twitter */}
-        <meta name="twitter:title" content={data.title} />
-        <meta name="twitter:card" content="summary_large_image" key="twcard" />
-        <meta name="twitter:creator" content="@mmartinez" key="twhandle" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@mmartinez" />
-        <meta name="twitter:image" content={`${origin}${data.ogImage.url}`} />
+        <meta name="twitter:creator" content="@mmartinez" />
+        <meta name="twitter:title" content={data.title} />
         <meta name="twitter:description" content={data.excerpt} />
+        <meta name="twitter:image" content={`${origin}${data.ogImage.url}`} />
 
         {/* Open Graph */}
         <meta property="og:url" content={origin} key="ogurl" />
