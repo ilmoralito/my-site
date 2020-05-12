@@ -1,13 +1,13 @@
 import Link from "next/link";
 import DateFormater from "../components/date-formater";
 
-export default function MainPost({ data }) {
+export default function MainPost({ data, slug }) {
   const { title, excerpt, date } = data;
 
   return (
     <section>
       <h1>
-        <Link href={`/blog/posts/${title}`}>
+        <Link href={`/blog/posts/${slug}`}>
           <a>{title}</a>
         </Link>
       </h1>

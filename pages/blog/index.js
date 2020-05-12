@@ -13,7 +13,7 @@ export default function Blog({ posts }) {
       <main>
         <h1 style={{ textAlign: "center" }}>Welcome to my blog</h1>
 
-        {post && <MainPost data={post.data} />}
+        {post && <MainPost data={post.data} slug={post.slug} />}
 
         {otherPosts && (
           <>
