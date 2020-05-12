@@ -1,17 +1,22 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 
-export default function Menu() {
+export default function Menu({ children, href }) {
+  const router = useRouter();
+
   return (
     <nav>
       <ul>
         <li>
           <Link href="/">
-            <a>Home</a>
+            <a className={router.pathname === "/" ? "active" : ""}>Home</a>
           </Link>
         </li>
         <li>
           <Link href="/blog">
-            <a>Blog</a>
+            <a className={router.pathname.includes("blog") ? "active" : ""}>
+              Blog
+            </a>
           </Link>
         </li>
       </ul>
@@ -31,6 +36,10 @@ export default function Menu() {
 
         nav ul li a {
           text-decoration: none;
+        }
+
+        .active {
+          color: tomato;
         }
       `}</style>
     </nav>
