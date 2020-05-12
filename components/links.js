@@ -1,27 +1,35 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Links() {
+  const router = useRouter();
+  const links = [
+    {
+      name: "Github",
+      link: "https://github.com/ilmoralito",
+    },
+    {
+      name: "Linkedin",
+      link: "https://www.linkedin.com/in/mario-martinez-1ba570a7",
+    },
+    {
+      name: "Stackoverflow",
+      link: "https://stackoverflow.com/users/615274/user615274",
+    },
+    {
+      name: "Email",
+      link: "mailto:mariorojermartinez@gmail.com",
+    },
+  ];
+
   return (
     <>
       <p>Contact me</p>
       <nav>
         <ul>
-          <li>
-            <a href="https://github.com/ilmoralito">Github</a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/mario-martinez-1ba570a7">
-              Linkedin
-            </a>
-          </li>
-          <li>
-            <a href="https://stackoverflow.com/users/615274/user615274">
-              Stackoverflow
-            </a>
-          </li>
-          <li>
-            <a href="mailto:mariorojermartinez@gmail.com">Email</a>
-          </li>
+          {links.map((link) => (
+            <ContactLink key={link.name} {...link} />
+          ))}
           <li>
             <Link href="/blog">
               <a>Blog</a>
@@ -36,8 +44,27 @@ export default function Links() {
             display: flex;
             justify-content: space-between;
           }
+
+          a:hover {
+            color: tomato;
+          }
         `}</style>
       </nav>
+    </>
+  );
+}
+
+function ContactLink({ name, link }) {
+  return (
+    <>
+      <li>
+        <a href={link}>{name}</a>
+      </li>
+      <style jsx>{`
+        li a:hover {
+          color: tomato;
+        }
+      `}</style>
     </>
   );
 }
